@@ -23,7 +23,7 @@ pipeline {
         stage('Git Checkout') {
           steps {
             echo 'Cloning the application code...'
-            git branch: 'main', url: 'https://gitlab.com/anselmenumbisia/tf-pipeline-project.git'
+            git branch: 'main', url: 'https://github.com/gfakx/terraform-pipeline.git'
           }
         }
         stage('format') {
