@@ -21,7 +21,7 @@ data "aws_ami" "linux2" {
 
 resource "aws_instance" "ec2_example" {
     ami = data.aws_ami.linux2.id
-    instance_type = "t2.medium"
+    instance_type = "t2.micro"
     tags = {
       Name ="${terraform.workspace}-instance"
     }
