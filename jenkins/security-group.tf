@@ -3,7 +3,7 @@ data "aws_vpc" "default" {
 }
 
 resource "aws_security_group" "jenkins" {
-  name        = "jenkins-sg"
+  name        = "jenkins-server-sg"
   description = "Allow HTTP to jenkins server"
   vpc_id      = data.aws_vpc.default.id
 
@@ -37,6 +37,6 @@ resource "aws_security_group" "jenkins" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }

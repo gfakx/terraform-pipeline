@@ -27,22 +27,22 @@ data "aws_ami" "linux2" {
 # Resource to provision an ec2 instance with jenkins installed
 
 resource "aws_instance" "jenkins" {
-  ami             = data.aws_ami.linux2.id
-  instance_type   = "t2.medium"
-  key_name        = "jenkinskeypair" #Replace with your key name
-  security_groups = [aws_security_group.jenkins.name]
-  iam_instance_profile = "EC2RoleforAdmins"
+  ami                  = data.aws_ami.linux2.id
+  instance_type        = "t2.medium"
+  key_name             = "GfakxKP" #Replace with your key name
+  security_groups      = [aws_security_group.jenkins.name]
+  iam_instance_profile = "Jenkins-cicd-server-role"  # Replace role your Jenkins Full admin role
 
 
   tags = {
-    Name = "Jenkins-Demo"
+    Name = "Jenkins-Gfakx-Server"
   }
 
-  user_data = file("jenkins-install.sh")
+  user_data = file("./jenkins-install.sh")
 
-#   lifecycle {
-#     prevent_destroy = true
-#   }
+  #   lifecycle {
+  #     prevent_destroy = true
+  #   }
 }
 
 
